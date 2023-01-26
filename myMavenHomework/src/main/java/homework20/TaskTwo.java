@@ -2,9 +2,19 @@ package homework20;
 
 public class TaskTwo {
     public boolean fourAndOne(int[] array) {
+        int four = 0;
+        int one = 0;
         for (int element : array) {
-            return element == 4 ? true : element == 1 ? true : false;
+            if(element == 4){
+                four++;
+            }
+            if(element == 1){
+                one++;
+            }
         }
-        return true;
+        if(one == 0 || four == 0){
+            return false;
+        }
+        return one + four == array.length;
     }
 }

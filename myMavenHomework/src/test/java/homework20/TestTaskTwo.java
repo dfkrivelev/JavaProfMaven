@@ -2,6 +2,7 @@ package homework20;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -19,15 +20,19 @@ public class TestTaskTwo {
         task = new TaskTwo();
     }
 
+    @Test
+    public void testTrue(){
+        Assertions.assertTrue(task.fourAndOne(new int[] {1, 1, 1, 4, 4, 1, 4}));
+    }
+
     @ParameterizedTest
     @MethodSource("dataForTest")
     public void testTaskTwo(int[] array) {
-        Assertions.assertTrue(task.fourAndOne(array));
+        Assertions.assertFalse(task.fourAndOne(array));
     }
 
     public static Stream<Arguments> dataForTest() {
         List<Arguments> out = new ArrayList<>();
-        out.add(Arguments.arguments(new int[]{1, 1, 1, 4, 4, 1, 4, 4}, true));
         out.add(Arguments.arguments(new int[]{1, 1, 1, 1, 1, 1}, false));
         out.add(Arguments.arguments(new int[]{4, 4, 4, 4}, false));
         out.add(Arguments.arguments(new int[]{1, 4, 4, 1, 1, 4, 3}, false));
