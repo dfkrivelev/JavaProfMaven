@@ -21,8 +21,8 @@ public class TestTaskTwo {
 
     @ParameterizedTest
     @MethodSource("dataForTest")
-    public void testTaskTwo(int[] array, boolean result) {
-        Assertions.assertTrue(task.fourAndOne(result, array));
+    public void testTaskTwo(int[] array) {
+        Assertions.assertTrue(task.fourAndOne(array));
     }
 
     public static Stream<Arguments> dataForTest() {
