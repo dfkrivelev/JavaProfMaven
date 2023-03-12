@@ -1,0 +1,24 @@
+Configuration:
+  status: warn
+
+Loggers:
+  logger:
+    - name: lesson32
+      level: WARN
+      appenders:
+        - file
+      AppenderRef:
+        - ref: LogConsole
+
+Appenders:
+  Console:
+    type: console
+    name: LogConsole
+    layout:
+      type: pattern
+      pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+
+Root:
+  level: WARN
+  AppenderRef:
+    ref: LogConsole
